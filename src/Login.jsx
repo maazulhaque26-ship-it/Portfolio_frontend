@@ -10,14 +10,23 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setError(''); // Purana error clear karne ke liye
+        
         try {
-            const res = await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/login', { email, password }, { withCredentials: true });
+            // Backend URL ekdum sahi hai
+            const res = await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/login', 
+                { email, password }, 
+                { withCredentials: true } // Cookies ke liye zaroori hai
+            );
+
             if (res.status === 200) {
-                alert("Login Successful!.");
-                navigate('/'); 
+                alert("Login Successful!");
+                // YAHAN BADLAV KIYA HAI: Ab ye viewers page par nahi, Admin Dashboard par bhejega
+                navigate('/admin'); 
             }
         } catch (err) {
-            setError(err.response?.data?.message || "Email ya Password galat hai!");
+            // Error handling ko thoda behtar kiya hai
+            setError(err.response?.data?.msg || "Email ya Password galat hai!");
         }
     };
 
@@ -26,7 +35,7 @@ const Login = () => {
             <div className="login-card">
                 <h2 className="login-title">ADMIN <span className="red-text">LOGIN</span></h2>
                 
-                {error && <div className="error-box">{error}</div>}
+                {error && <div className="error-box" style={{color: 'red', marginBottom: '10px'}}>{error}</div>}
 
                 <form onSubmit={handleLogin} className="login-form">
                     <div className="input-field">
