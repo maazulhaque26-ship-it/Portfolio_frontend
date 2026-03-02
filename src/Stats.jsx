@@ -8,10 +8,10 @@ const Stats = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get('http://localhost:3000/getstats');
+            const res = await axios.get('https://portfolio-backend-vnu1.onrender.com/getstats');
             setDbStats(res.data);
             
-            const adminRes = await axios.get('http://localhost:3000/admin/status', { withCredentials: true });
+            const adminRes = await axios.get('https://portfolio-backend-vnu1.onrender.com/admin/status', { withCredentials: true });
             if (adminRes.status === 200) setIsAdmin(true);
         } catch (err) {
             setIsAdmin(false); 
@@ -43,9 +43,9 @@ const Stats = () => {
 
             try {
                 if (dbStats?._id) {
-                    await axios.put(`http://localhost:3000/admin/stats/${dbStats._id}`, payload, { withCredentials: true });
+                    await axios.put(`https://portfolio-backend-vnu1.onrender.com/admin/stats/${dbStats._id}`, payload, { withCredentials: true });
                 } else {
-                    await axios.post('http://localhost:3000/admin/stats', payload, { withCredentials: true });
+                    await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/stats', payload, { withCredentials: true });
                 }
                 alert("Stats Updated Successfully!");
                 fetchData();
@@ -60,7 +60,7 @@ const Stats = () => {
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete these stats?")) {
             try {
-                await axios.delete(`http://localhost:3000/admin/stats/${dbStats._id}`, { withCredentials: true });
+                await axios.delete(`https://portfolio-backend-vnu1.onrender.com/admin/stats/${dbStats._id}`, { withCredentials: true });
                 alert("Stats Deleted!");
                 setDbStats(null); 
                 fetchData();

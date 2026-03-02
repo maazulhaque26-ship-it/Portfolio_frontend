@@ -7,10 +7,10 @@ const Contact = () => {
 
   const fetchContact = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/getcontact');
+      const res = await axios.get('https://portfolio-backend-vnu1.onrender.com/getcontact');
       if (res.data) setContactData(res.data);
       
-      await axios.get('http://localhost:3000/admin/status', { withCredentials: true });
+      await axios.get('https://portfolio-backend-vnu1.onrender.com/admin/status', { withCredentials: true });
       setIsAdmin(true);
     } catch (err) {
       setIsAdmin(false);
@@ -27,7 +27,7 @@ const Contact = () => {
       
       if (newTitle && newUrl) {
         try {
-          await axios.put('http://localhost:3000/admin/contact', 
+          await axios.put('https://portfolio-backend-vnu1.onrender.com/admin/contact', 
             { linkTitle: newTitle, linkUrl: newUrl }, 
             { withCredentials: true }
           );

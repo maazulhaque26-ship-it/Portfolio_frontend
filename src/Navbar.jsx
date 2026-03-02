@@ -7,7 +7,7 @@ const Navbar = () => {
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        await axios.get('http://localhost:3000/admin/status', { withCredentials: true });
+        await axios.get('https://portfolio-backend-vnu1.onrender.com/admin/status', { withCredentials: true });
         setIsAdmin(true);
       } catch (err) {
         setIsAdmin(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:3000/admin/logout', {}, { withCredentials: true });
+      await axios.post('http://0/admin/logout', {}, { withCredentials: true });
       alert("Logout Success!");
       window.location.reload(); 
     } catch (err) {

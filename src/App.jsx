@@ -11,7 +11,7 @@ import Contact from './Contact'
 
 // Backend connection setup
 axios.defaults.withCredentials = true; 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://portfolio-backend-vnu1.onrender.com';
 
 const App = () => {
   return (

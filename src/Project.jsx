@@ -7,9 +7,9 @@ const Projects = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/getprojects');
+      const res = await axios.get('https://portfolio-backend-vnu1.onrender.com/getprojects');
       setProjects(res.data);
-      await axios.get('http://localhost:3000/admin/status', { withCredentials: true });
+      await axios.get('https://portfolio-backend-vnu1.onrender.com/admin/status', { withCredentials: true });
       setIsAdmin(true);
     } catch (err) {
       setIsAdmin(false);
@@ -24,7 +24,7 @@ const Projects = () => {
     const vercelUrl = prompt("Vercel Link?", "https://portfolio-maazulhaque.vercel.app/");
     if (title && url) {
       try {
-        await axios.post('http://localhost:3000/admin/product', { title, url, vercelUrl }, { withCredentials: true });
+        await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/product', { title, url, vercelUrl }, { withCredentials: true });
         fetchData();
       } catch (err) { alert("Add failed!"); }
     }
@@ -33,7 +33,7 @@ const Projects = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Pakka uda du lala?")) {
       try {
-        await axios.delete(`http://localhost:3000/admin/product/${id}`, { withCredentials: true });
+        await axios.delete(`https://portfolio-backend-vnu1.onrender.com/admin/product/${id}`, { withCredentials: true });
         setProjects(projects.filter(p => p._id !== id));
       } catch (err) { alert("Delete failed!"); }
     }
@@ -45,7 +45,7 @@ const Projects = () => {
     const newVercel = prompt("New Vercel Link:", project.vercelUrl || "");
     if (newTitle && newUrl) {
       try {
-        await axios.put(`http://localhost:3000/admin/product/${project._id}`, 
+        await axios.put(`https://portfolio-backend-vnu1.onrender.com/admin/product/${project._id}`, 
           { title: newTitle, url: newUrl, vercelUrl: newVercel }, 
           { withCredentials: true }
         );
@@ -58,7 +58,7 @@ const Projects = () => {
     const newLink = prompt("Update Project Link:", project.vercelUrl);
     if (newLink !== null) {
       try {
-        await axios.put(`http://localhost:3000/admin/product/${project._id}`, 
+        await axios.put(`https://portfolio-backend-vnu1.onrender.com/admin/product/${project._id}`, 
           { ...project, vercelUrl: newLink }, 
           { withCredentials: true }
         );

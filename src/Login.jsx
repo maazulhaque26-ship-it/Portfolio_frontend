@@ -11,7 +11,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3000/admin/login', { email, password }, { withCredentials: true });
+            const res = await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/login', { email, password }, { withCredentials: true });
             if (res.status === 200) {
                 alert("Login Successful!.");
                 navigate('/'); 

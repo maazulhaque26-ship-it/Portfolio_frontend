@@ -7,9 +7,9 @@ const Services = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/getservices');
+      const res = await axios.get('https://portfolio-backend-vnu1.onrender.com/getservices');
       setServices(res.data);
-      await axios.get('http://localhost:3000/admin/status', { withCredentials: true });
+      await axios.get('https://portfolio-backend-vnu1.onrender.com/admin/status', { withCredentials: true });
       setIsAdmin(true);
     } catch (err) { setIsAdmin(false); }
   };
@@ -22,7 +22,7 @@ const Services = () => {
     const discription = prompt("Description?");
     if (title && icon && discription) {
       try {
-        await axios.post('http://localhost:3000/admin/services', { title, icon, discription }, { withCredentials: true });
+        await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/services', { title, icon, discription }, { withCredentials: true });
         fetchData();
       } catch (err) { alert("Failed! Check if you are logged in."); }
     }
@@ -34,7 +34,7 @@ const Services = () => {
     const discription = prompt("Update Description?", oldDesc);
     if (title && discription) {
       try {
-        await axios.put(`http://localhost:3000/admin/services/${id}`, { title, icon, discription }, { withCredentials: true });
+        await axios.put(`https://portfolio-backend-vnu1.onrender.com/admin/services/${id}`, { title, icon, discription }, { withCredentials: true });
         fetchData();
       } catch (err) { alert("Update failed!"); }
     }
@@ -43,7 +43,7 @@ const Services = () => {
   const handleDelete = async (id) => {
     if (window.confirm("confirm delete ?")) {
       try {
-        await axios.delete(`http://localhost:3000/admin/services/${id}`, { withCredentials: true });
+        await axios.delete(`https://portfolio-backend-vnu1.onrender.com/admin/services/${id}`, { withCredentials: true });
         fetchData();
       } catch (err) { alert("Delete failed!"); }
     }
