@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://0/admin/logout', {}, { withCredentials: true });
+      await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/logout', {}, { withCredentials: true });
       alert("Logout Success!");
       window.location.reload(); 
     } catch (err) {
