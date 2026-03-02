@@ -31,7 +31,7 @@ const Projects = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Pakka uda du lala?")) {
+    if (window.confirm("confirm delete ?")) {
       try {
         await axios.delete(`https://portfolio-backend-vnu1.onrender.com/admin/product/${id}`, { withCredentials: true });
         setProjects(projects.filter(p => p._id !== id));
