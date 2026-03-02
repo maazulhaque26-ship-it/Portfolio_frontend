@@ -115,7 +115,7 @@ const Projects = () => {
                 onMouseOver={(e) => e.target.style.background = '#b31b1b'}
                 onMouseOut={(e) => e.target.style.background = '#ff4d4d'}
               >
-                {isAdmin ? "EDIT PROJECT LINK" : "KNOW MORE"}
+                {isAdmin ? "EDIT PROJECT LINK" : "OPEN"}
               </a>
 
               {/* Action Buttons for Admin */}
