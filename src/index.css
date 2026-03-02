@@ -290,12 +290,12 @@
 
 
 
-/* Container Fix */
+/* Container Fix 
 .hero-section, .stats-section {
     background-color: #000;
     color: #fff;
     padding: 60px 10%;
-}
+}*/
 
 /* Admin Controls - Hidden by default unless JS renders them */
 .admin-controls, .admin-crud-bar {
