@@ -1,50 +1,47 @@
 return (
-    <section className="stats-section" style={{ background: '#000', color: '#fff', padding: '80px 10%', borderTop: '1px solid #111' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <section style={{ background: '#000', color: '#fff', padding: '100px 8%', borderTop: '1px solid #111' }}>
+        <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
             
-            {/* Admin Controls - Only for Maazul */}
             {isAdmin && (
-                <div style={{ marginBottom: '40px', display: 'flex', gap: '15px' }}>
-                    <button onClick={handleSave} className="edit-btn">
-                        {dbStats ? "✎ EDIT STATS" : "+ ADD STATS"}
-                    </button>
-                </div>
+                <button onClick={handleSave} className="edit-btn" style={{ marginBottom: '50px' }}>
+                    ✎ EDIT STATS
+                </button>
             )}
 
-            {/* Display Stats - Premium Look */}
             {dbStats ? (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '80px', flexWrap: 'wrap' }}>
-                    
-                    {/* Big Experience Number */}
-                    <div style={{ textAlign: 'left' }}>
-                        <h1 className="huge-num" style={{ margin: 0, color: '#fff' }}>
-                            {dbStats.experience}
-                        </h1>
-                        <p style={{ color: '#ff4d4d', fontSize: '14px', fontWeight: 800, letterSpacing: '2px', marginTop: '10px', lineHeight: '1.2' }}>
-                            YEARS OF<br />EXPERIENCE
-                        </p>
+                <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'flex-start', 
+                    flexWrap: 'wrap',
+                    gap: '40px' 
+                }}>
+                    {/* Experience */}
+                    <div style={{ textAlign: 'left', minWidth: '200px' }}>
+                        <h1 className="stat-number">{dbStats.experience}</h1>
+                        <p className="stat-label">YEARS OF<br/>EXPERIENCE</p>
                     </div>
 
-                    {/* Other Stats Grid */}
-                    <div style={{ display: 'flex', gap: '60px', flexWrap: 'wrap', flex: 1, justifyContent: 'space-around' }}>
-                        <div style={{ textAlign: 'left' }}>
-                            <h2 style={{ fontSize: '3.5rem', margin: 0, fontWeight: 900 }}>{dbStats.clients}+</h2>
-                            <p style={{ color: '#555', fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>Global Clients</p>
-                        </div>
-                        <div style={{ textAlign: 'left' }}>
-                            <h2 style={{ fontSize: '3.5rem', margin: 0, fontWeight: 900 }}>{dbStats.projects}+</h2>
-                            <p style={{ color: '#555', fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>Projects Done</p>
-                        </div>
-                        <div style={{ textAlign: 'left' }}>
-                            <h2 style={{ fontSize: '3.5rem', margin: 0, fontWeight: 900 }}>{dbStats.achivements}+</h2>
-                            <p style={{ color: '#555', fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>Awards Won</p>
-                        </div>
+                    {/* Clients */}
+                    <div style={{ textAlign: 'left', minWidth: '200px' }}>
+                        <h1 className="stat-number">{dbStats.clients}+</h1>
+                        <p className="stat-label">GLOBAL<br/>CLIENTS</p>
+                    </div>
+
+                    {/* Projects */}
+                    <div style={{ textAlign: 'left', minWidth: '200px' }}>
+                        <h1 className="stat-number">{dbStats.projects}+</h1>
+                        <p className="stat-label">PROJECTS<br/>COMPLETED</p>
+                    </div>
+
+                    {/* Awards */}
+                    <div style={{ textAlign: 'left', minWidth: '200px' }}>
+                        <h1 className="stat-number">{dbStats.achivements}+</h1>
+                        <p className="stat-label">AWARDS<br/>ACHIEVED</p>
                     </div>
                 </div>
             ) : (
-                <div style={{ border: '1px dashed #222', padding: '40px', textAlign: 'center' }}>
-                    <p style={{ color: '#444' }}>No statistics found. Click edit to initialize.</p>
-                </div>
+                <p style={{ color: '#444', textAlign: 'center' }}>No stats available.</p>
             )}
         </div>
     </section>

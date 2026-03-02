@@ -290,12 +290,24 @@
 
 
 
-/* Container Fix 
-.hero-section, .stats-section {
-    background-color: #000;
+/* Sabhi numbers ke liye ek jaisa bada size */
+.stat-number {
+    font-size: 7rem !important; /* Mobile ke liye clamp(4rem, 10vw, 7rem) use kar sakte ho */
+    font-weight: 900 !important;
+    line-height: 1;
+    letter-spacing: -4px;
+    margin: 0;
     color: #fff;
-    padding: 60px 10%;
-}*/
+}
+
+.stat-label {
+    color: #ff4d4d; /* Theme red color */
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
 
 /* Admin Controls - Hidden by default unless JS renders them */
 .admin-controls, .admin-crud-bar {
