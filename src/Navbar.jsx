@@ -20,7 +20,7 @@ const Navbar = () => {
     try {
       await axios.post('https://portfolio-backend-vnu1.onrender.com/admin/logout', {}, { withCredentials: true });
       alert("Logout Success!");
-      window.location.reload(); 
+      window.location.href = 'admin/login'; 
     } catch (err) {
       alert("Logout Failed!");
     }
