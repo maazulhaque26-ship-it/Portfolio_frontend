@@ -19,6 +19,7 @@ import TimelineSection     from '../components/TimelineSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import NewsSection         from '../components/NewsSection';
 import ContactSection      from '../components/ContactSection';
+import AchievementsSection from '../components/AchievementsSection';
 import Footer              from '../components/Footer';
 
 const Home = () => {
@@ -113,6 +114,7 @@ const Home = () => {
       <TestimonialsSection />
       <NewsSection />
       <ContactSection />
+      <AchievementsSection />
       <Footer />
     </div>
   );
