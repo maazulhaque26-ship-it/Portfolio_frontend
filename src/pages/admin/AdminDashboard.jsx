@@ -11,6 +11,7 @@ import AdminProfile      from './AdminProfile';
 import AdminContact      from './AdminContact';
 import AdminPricing      from './AdminPricing';
 import AdminTimeline     from './AdminTimeline';
+import AdminAchievements from './AdminAchievements';
 import AdminServices     from './AdminServices';
 import AdminProjects     from './AdminProjects';
 import AdminBlogs        from './AdminBlogs';
@@ -29,6 +30,7 @@ const AdminDashboard = () => {
       case 'contact':      return <AdminContact      onSave={refreshData} />;
       case 'pricing':      return <AdminPricing      onSave={refreshData} />;
       case 'timeline':     return <AdminTimeline     onSave={refreshData} />;
+      case 'achievements': return <AdminAchievements onSave={refreshData} />;
       case 'services':     return <AdminServices     onSave={refreshData} />;
       case 'projects':     return <AdminProjects     onSave={refreshData} />;
       case 'blogs':        return <AdminBlogs        onSave={refreshData} />;

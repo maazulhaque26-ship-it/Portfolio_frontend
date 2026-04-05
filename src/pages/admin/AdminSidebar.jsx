@@ -17,6 +17,7 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
     { id: 'contact',      label: 'Contact',        icon: '📬' },
     { id: 'pricing',      label: 'Pricing',        icon: '💰' },
     { id: 'timeline',     label: 'Timeline',       icon: '🗓️' },
+    { id: 'achievements', label: 'Achievements',   icon: '🏆' },
     { id: 'services',     label: 'Services',       icon: '✨' },
     { id: 'projects',     label: 'Projects',       icon: '📁' },
     { id: 'blogs',        label: 'Blogs',           icon: '📝' },
