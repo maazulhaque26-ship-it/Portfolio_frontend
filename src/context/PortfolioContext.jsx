@@ -20,6 +20,7 @@ const normalizeProfile = (raw) => {
       about:    { bioText: '', projectsCompleted: '', industriesCovered: '', yearsExperience: '' },
       pricing:  [],
       timeline: [],
+      achievements: [],
       contact:  { phone: '', email: '', address: '', socials: {} },
     };
   }
@@ -35,6 +36,7 @@ const normalizeProfile = (raw) => {
       address: raw.contact?.address || '',
       socials: raw.contact?.socials || {},
     },
+    achievements: Array.isArray(raw.achievements) ? raw.achievements : [],
     _id: raw._id,
   };
 };
