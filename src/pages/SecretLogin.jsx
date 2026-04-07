@@ -25,7 +25,7 @@ const SecretLogin = () => {
     const result = await login(email, password);
 
     if (result.success) {
-      navigate('/authenticate-master', { replace: true });
+      navigate('/authmaster', { replace: true });
     } else {
       setError(result.message || 'Access Denied. Invalid master credentials.');
     }

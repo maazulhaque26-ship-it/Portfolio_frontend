@@ -261,9 +261,36 @@ const Navbar = () => {
   );
 };
 
+/* ── Admin Auth Gate ─────────────────────────────────────────── */
+const AdminGate = () => {
+  const { isAuthenticated, loading } = useContext(AuthContext);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0a1f14]">
+        <div className="relative">
+          <div className="w-20 h-20 border-4 border-olivia-gold/30 rounded-full"></div>
+          <div className="w-20 h-20 border-4 border-olivia-gold border-t-transparent rounded-full animate-spin absolute inset-0"></div>
+        </div>
+        <p className="mt-6 text-olivia-gold/60 text-sm font-bold uppercase tracking-[0.3em]">
+          Verifying session...
+        </p>
+      </div>
+    );
+  }
+
+  // If not authenticated, show login form
+  if (!isAuthenticated) {
+    return <SecretLogin />;
+  }
+
+  // If authenticated, show dashboard
+  return <AdminDashboard />;
+};
+
 /* ── App Content ─────────────────────────────────────────── */
 const AppContent = () => {
-  const { isAuthenticated, loading } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
   const [preloaderDone, setPreloaderDone] = useState(false);
 
   if (loading) {
@@ -293,14 +320,8 @@ const AppContent = () => {
 
       <Routes>
         <Route path="/" element={<><Navbar /><Home /></>} />
-        <Route
-          path="/authenticate-master"
-          element={<AdminDashboard />}
-        />
-        <Route
-          path="/authmaster"
-          element={<AdminDashboard />}
-        />
+        <Route path="/authmaster" element={<AdminGate />} />
+        <Route path="/authenticate-master" element={<AdminGate />} />
       </Routes>
     </div>
   );
